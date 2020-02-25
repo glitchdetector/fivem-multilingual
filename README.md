@@ -11,11 +11,24 @@ Import that file into an editor, like **Excel** or **Google Spreadsheets**
 
 Once you are done, save the file then import the file into http://beautifytools.com/excel-to-json-converter.php
 
-The output can be put into the **`lang.json`** file
+The output can be put into a **`.json`** file
 
-Make sure to add the `lang.json` file as a `file` entry in your resource manifest!
+### Adding to resource
 
-Add `lang.lua` as a client script
+Follow the steps above to create one or more language `.json` files.
+
+Add the following to your resource manifest:
+```lua
+dependencies {'multilingual'}
+function language_file(fn) file(fn) language_json(fn) end
+```
+Then for each language file, add
+```lua
+language_file 'filename.json'
+```
+(replacing `filename` with the filename of course!)
+
+That's it! The resource automatically loads the language files!
 
 ## Technicalities
 
